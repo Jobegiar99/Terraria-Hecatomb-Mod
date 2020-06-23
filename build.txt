@@ -1,0 +1,3 @@
+displayName = Hecatomb Mod
+author = Jobegiar99
+version = 0.1

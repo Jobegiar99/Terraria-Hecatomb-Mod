@@ -7,54 +7,50 @@ using Terraria.ModLoader;
 
 namespace HecatombMod.Items.Ranged.Projectiles  //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {	
-	public class waterArrowProjectile : ModProjectile 
-	{
-        float pX,pY;
+	public class bloodArrowProjectile : ModProjectile 
+	{   
+   
 		public override void SetDefaults()
 		{
 			projectile.width = 33; //Set the hitbox width
 			projectile.height = 33; //Set the hitbox height
-			projectile.timeLeft = 600; //The amount of time the projectile is alive for
+            projectile.timeLeft = 300;
 			projectile.penetrate = 1; //Tells the game how many enemies it can hit before being destroyed
 			projectile.friendly = true; //Tells the game whether it is friendly to players/friendly npcs or not
 			projectile.hostile = false; //Tells the game whether it is hostile to players or not
 			projectile.tileCollide = true; //Tells the game whether or not it can collide with a tile
 			projectile.ignoreWater = false; //Tells the game whether or not projectile will be affected by water
 			projectile.ranged = true; //Tells the game whether it is a ranged projectile or not
-			projectile.aiStyle = 1; //How the projectile works, this is no AI, it just goes a straight path
+			projectile.aiStyle = 1; //How the projectile works
+            
             
 		}
 
         public override void AI()
         { //The projectile's AI/ what the projectile does
-
-            Player owner = Main.player[projectile.owner];
-
-            projectile.light = 0.5f;
-
-            Projectile.NewProjectile(projectile.position.X - 10,
-                                     projectile.position.Y - 15, 
-                                     MathHelper.Lerp(-5f,10f,1), 
-                                     MathHelper.Lerp(5f,10f,1), 
-                                     22 , // 22 projectile ID
-                                     10, //damage
-                                     projectile.knockBack, 
-                                     Main.myPlayer);
-            
-            pX =  projectile.position.X;
-            pY =  projectile.position.Y;
-
-
-        }
-
-         public override void OnHitNPC(NPC n, int damage, float knockback, bool crit)
-        {
-            n.AddBuff(103,180);
+            int DustRed = Dust.NewDust(
+                new Vector2(projectile.position.X, projectile.position.Y + 2f), 
+                projectile.width + 20, projectile.height + 20, 
+                5, 
+                projectile.velocity.X * 0.2f, 
+                projectile.velocity.Y * 0.2f, 
+                120,
+                default(Color), 
+                0.75f); //Spawns dust
+            Projectile.NewProjectile(projectile.position.X,
+                                     (float) (projectile.position.Y + Math.Cos(projectile.position.Y)),
+                                     -(float) (Math.Cos(projectile.velocity.X)) * 2f ,
+                                     -(float) (Math.Sin(projectile.velocity.Y)) ,
+                                     245,
+                                     10,
+                                     1,
+                                     Main.myPlayer,
+                                     0,0);
         }
 
         public override void Kill(int timeLeft){
             Main.PlaySound(0,new Vector2(projectile.position.X, projectile.position.Y),1);
-
         }
+
     }
 }

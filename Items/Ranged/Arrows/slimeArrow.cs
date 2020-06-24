@@ -24,6 +24,7 @@ namespace HecatombMod.Items.Ranged.Arrows
 			item.maxStack = 999;
 			item.knockBack = 2;
 			item.value = 25;
+			item.consumable = true;
 			item.rare = 2;
 			item.UseSound = SoundID.Item1;
 
@@ -37,7 +38,6 @@ namespace HecatombMod.Items.Ranged.Arrows
 			recipe.SetResult(this,1);
 			recipe.AddRecipe();
 		}
-
 		
 	}
 }

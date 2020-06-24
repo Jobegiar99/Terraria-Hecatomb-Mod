@@ -24,25 +24,42 @@ namespace HecatombMod.Items.Ranged.Projectiles  //We need this to basically indi
 			projectile.aiStyle = 1; //How the projectile works
             
 		}
-
-        public override void AI()
-        { //The projectile's AI/ what the projectile does
-
-            Player owner = Main.player[projectile.owner];
-
-            projectile.light = 0.5f;
-            
-
-        }
         public override bool OnTileCollide(Vector2 velocityChange)  
         {
+			Projectile.NewProjectile(projectile.position.X,
+									projectile.position.Y,
+									projectile.velocity.X,	
+									projectile.velocity.Y,
+									406,
+									0,
+									0,
+									Main.myPlayer,
+									1,1);
             if( bumps > 0){
                 projectile.velocity.X = -velocityChange.X * MathHelper.Lerp(0.9f,1.1f,1); //Goes in the opposite direction
                 projectile.velocity.Y = -velocityChange.Y * MathHelper.Lerp(0.9f,1.1f,1); //Goes in the opposite direction
                 bumps --;
                 return false;
             }
+
+			
             return true;
+        }
+
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit){
+			Projectile.NewProjectile(projectile.position.X,
+									projectile.position.Y,
+									projectile.velocity.X,	
+									projectile.velocity.Y,
+									406,
+									0,
+									0,
+									Main.myPlayer,
+									1,1);
+		}
+		public override void Kill(int timeLeft){
+            Main.PlaySound(0,new Vector2(projectile.position.X, projectile.position.Y),1);
+
         }
 
     }

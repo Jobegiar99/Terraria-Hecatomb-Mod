@@ -31,15 +31,29 @@ namespace HecatombMod.Items.Ranged.Projectiles  //We need this to basically indi
             Player owner = Main.player[projectile.owner];
 
             projectile.light = 0.5f;
-
-            Projectile.NewProjectile(projectile.position.X - 10,
-                                     projectile.position.Y - 15, 
-                                     MathHelper.Lerp(-5f,10f,1), 
-                                     MathHelper.Lerp(5f,10f,1), 
-                                     22 , // 22 projectile ID
-                                     10, //damage
-                                     projectile.knockBack, 
-                                     Main.myPlayer);
+            if ( projectile.velocity.X >= 0 ){
+                Projectile.NewProjectile(
+                                    projectile.position.X + 20 ,
+                                    projectile.position.Y - 30, 
+                                    projectile.velocity.X, 
+                                    MathHelper.Lerp(5f,10f,1), 
+                                    22 , // 22 projectile ID
+                                    10, //damage
+                                    projectile.knockBack, 
+                                    Main.myPlayer
+                );
+            }else{
+                Projectile.NewProjectile(
+                                    projectile.position.X + 10,
+                                    projectile.position.Y - 30, 
+                                    projectile.velocity.X, 
+                                    MathHelper.Lerp(5f,10f,1), 
+                                    22 , // 22 projectile ID
+                                    10, //damage
+                                    projectile.knockBack, 
+                                    Main.myPlayer
+                );
+            }
             
             pX =  projectile.position.X;
             pY =  projectile.position.Y;

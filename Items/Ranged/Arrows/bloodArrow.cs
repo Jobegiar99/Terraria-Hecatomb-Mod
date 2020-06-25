@@ -27,7 +27,6 @@ namespace HecatombMod.Items.Ranged.Arrows
 			item.rare = 2;
 			item.consumable = true;
 			item.UseSound = SoundID.Item1;
-			
 
 		}
 
@@ -37,7 +36,6 @@ namespace HecatombMod.Items.Ranged.Arrows
             ModRecipe recipeB = new ModRecipe(mod);
 			recipeA.AddIngredient(ItemID.TissueSample, 10);
 			recipeA.AddIngredient(ItemID.WoodenArrow,100);
-            recipeA.AddIngredient(ItemID.DirtBlock);
 			recipeA.AddTile(TileID.WorkBenches);
 			recipeA.SetResult(this,100);
 			recipeA.AddRecipe();

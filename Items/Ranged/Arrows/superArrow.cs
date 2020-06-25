@@ -3,30 +3,29 @@ using Terraria.ModLoader;
 
 namespace HecatombMod.Items.Ranged.Arrows
 {
-	public class waterArrow : ModItem
+	public class superArrow : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
 			// DisplayName.SetDefault("itemHelp"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-			Tooltip.SetDefault("Soak your enemies to death!");
+			Tooltip.SetDefault("Fear the true power of the arrows!");
 			
 		}
 
 		public override void SetDefaults() 
 		{
-			item.damage = 12;
+			item.damage = 0;
 			item.ammo = AmmoID.Arrow;
-			item.shoot = mod.ProjectileType("waterArrowProjectile");
+			item.shoot = mod.ProjectileType("superArrowProjectile");
 			item.ranged = true;
-			item.width = 33;
-			item.height = 33;
-			item.crit = 4;
+			item.width = 25;
+			item.height = 25;
+			item.crit = 8;
 			item.maxStack = 999;
-			item.knockBack = 5;
-			item.value = 25;
-			item.shootSpeed = 1.5f;
+			item.knockBack = 0;
+			item.value = 50;
+			item.rare = 3;
 			item.consumable = true;
-			item.rare = 2;
 			item.UseSound = SoundID.Item1;
 
 		}
@@ -34,13 +33,15 @@ namespace HecatombMod.Items.Ranged.Arrows
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.WoodenArrow, 100);
-			recipe.AddIngredient(ItemID.BottledWater,5);
-			recipe.AddIngredient(ItemID.SandBlock,10);
+            recipe.AddIngredient(ItemID.PixieDust,5);
+            recipe.AddIngredient(ItemID.WoodenArrow,200);
+            recipe.AddIngredient(ItemID.Cobweb, 20);
+            recipe.AddIngredient(ItemID.SoulofFright,1);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.SetResult(this,100);
+			recipe.SetResult(this,200);
 			recipe.AddRecipe();
+            
 		}
-		
+
 	}
 }

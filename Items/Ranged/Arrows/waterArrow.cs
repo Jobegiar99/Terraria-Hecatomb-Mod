@@ -14,7 +14,7 @@ namespace HecatombMod.Items.Ranged.Arrows
 
 		public override void SetDefaults() 
 		{
-			item.damage = 12;
+			item.damage = 8;
 			item.ammo = AmmoID.Arrow;
 			item.shoot = mod.ProjectileType("waterArrowProjectile");
 			item.ranged = true;
@@ -36,10 +36,11 @@ namespace HecatombMod.Items.Ranged.Arrows
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.WoodenArrow, 100);
 			recipe.AddIngredient(ItemID.BottledWater,5);
-			recipe.AddIngredient(ItemID.SandBlock,10);
+			recipe.AddIngredient(ItemID.SandBlock,20);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this,100);
 			recipe.AddRecipe();
+
 		}
 		
 	}

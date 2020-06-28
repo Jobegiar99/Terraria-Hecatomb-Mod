@@ -3,28 +3,28 @@ using Terraria.ModLoader;
 
 namespace HecatombMod.Items.Ranged.Arrows
 {
-	public class manaStarArrow : ModItem
+	public class SquirrelArrow : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
 			// DisplayName.SetDefault("itemHelp"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-			Tooltip.SetDefault("Hope they are able to make a wish before they die...");
+			Tooltip.SetDefault("Don't tell the zoologist.");
 			
 		}
 
 		public override void SetDefaults() 
 		{
-			item.damage = 10;
+			item.damage = 15;
 			item.ammo = AmmoID.Arrow;
-			item.shoot = mod.ProjectileType("manaStarArrowProjectile");
+			item.shoot = mod.ProjectileType("squirrelArrowProjectile");
 			item.ranged = true;
-			item.width = 33;
-			item.height = 33;
-			item.crit = 2;
+			item.width = 25;
+			item.height = 25;
+			item.crit = 8;
 			item.maxStack = 999;
-			item.knockBack = 4;
-			item.value = 25;
-			item.rare = 2;
+			item.knockBack = 0;
+			item.value = 50;
+			item.rare = 3;
 			item.consumable = true;
 			item.UseSound = SoundID.Item1;
 
@@ -33,12 +33,12 @@ namespace HecatombMod.Items.Ranged.Arrows
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.ManaCrystal, 5);
-			recipe.AddIngredient(ItemID.WoodenArrow,100);
+            recipe.AddIngredient(ItemID.Squirrel, 1);
+			recipe.AddIngredient(ItemID.Dynamite,1);
+			recipe.AddIngredient(ItemID.WoodenArrow,1);
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.SetResult(this,100);
+			recipe.SetResult(this,200);
 			recipe.AddRecipe();
-            
             
 		}
 

@@ -34,7 +34,7 @@ namespace HecatombMod.Items.Ranged.Arrows
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.WoodenArrow,100);
-			recipe.AddIngredient(ItemID.Gel,20);
+			recipe.AddIngredient(ItemID.Gel,10);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this,100);
 			recipe.AddRecipe();

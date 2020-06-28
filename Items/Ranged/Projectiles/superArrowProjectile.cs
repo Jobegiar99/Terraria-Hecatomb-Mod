@@ -36,7 +36,7 @@ namespace HecatombMod.Items.Ranged.Projectiles  //We need this to basically indi
 
         public override void Kill(int timeLeft){
             Main.PlaySound(0,new Vector2(projectile.position.X, projectile.position.Y),1);
-            for(int i = 0; i < 2;i++){
+            for(int i = 0; i < 4;i++){
                 for(int j = 0; j <= 8; j++){
                     Projectile.NewProjectile(
                         projectile.position.X + (40 - (j * 10)),
@@ -44,7 +44,7 @@ namespace HecatombMod.Items.Ranged.Projectiles  //We need this to basically indi
                         projectile.velocity.X,
                         projectile.velocity.Y,
                         1,
-                        10,
+                        5,
                         1,
                         Main.myPlayer,
                         0,

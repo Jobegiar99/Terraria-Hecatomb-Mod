@@ -14,7 +14,7 @@ namespace HecatombMod.Items.Ranged.Arrows
 
 		public override void SetDefaults() 
 		{
-			item.damage = 10;
+			item.damage = 12;
 			item.ammo = AmmoID.Arrow;
 			item.shoot = mod.ProjectileType("bloodArrowProjectile");
 			item.ranged = true;

@@ -36,7 +36,7 @@ namespace HecatombMod.Items.Ranged.Arrows
             recipe.AddIngredient(ItemID.PixieDust,5);
             recipe.AddIngredient(ItemID.WoodenArrow,200);
             recipe.AddIngredient(ItemID.Cobweb, 20);
-            recipe.AddIngredient(ItemID.SoulofFright,1);
+            recipe.AddIngredient(ItemID.SoulofMight,3);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this,200);
 			recipe.AddRecipe();

@@ -3,11 +3,11 @@ using Terraria.ModLoader;
 
 namespace HecatombMod.Items.Magic.Tomes
 {
-	public class TomeofWater : ModItem
+	public class TomeofWaterShield : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
-			 DisplayName.SetDefault("Tome of Water: Defense"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			 DisplayName.SetDefault("Tome of Water: Shield"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
 			Tooltip.SetDefault("Let the water protect you");
 			
 		}
@@ -30,7 +30,7 @@ namespace HecatombMod.Items.Magic.Tomes
 			item.rare = 4;
             item.maxStack = 1;
 
-			item.shoot = mod.ProjectileType("TomeofWaterProjectile");
+			item.shoot = mod.ProjectileType("TomeofWaterShieldProjectile");
             item.useStyle = ItemUseStyleID.HoldingOut;
 			item.UseSound = SoundID.LiquidsHoneyWater;
 
@@ -45,6 +45,7 @@ namespace HecatombMod.Items.Magic.Tomes
             recipe.AddIngredient(ItemID.WaterCandle,1);
             recipe.AddIngredient(ItemID.ManaCrystal, 10);
             recipe.AddIngredient(ItemID.Sapphire, 10);
+	
 		
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this,1);

@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace HecatombMod.Items.Magic.Projectiles //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {	
-	public class TomeofWaterProjectile : ModProjectile 
+	public class TomeofWaterShieldProjectile : ModProjectile 
 	{   
         float speed = 5;
 		public override void SetDefaults()
@@ -60,7 +60,7 @@ namespace HecatombMod.Items.Magic.Projectiles //We need this to basically indica
         }
 		public override void Kill(int timeLeft){
 
-            Main.PlaySound(0,new Vector2(projectile.position.X, projectile.position.Y),1);
+            Main.PlaySound(4,new Vector2(projectile.position.X, projectile.position.Y),1);
 
         }
 

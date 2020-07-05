@@ -70,5 +70,17 @@ namespace HecatombMod.Items.Magic.Projectiles //We need this to basically indica
             return false;
         }
 
+        public override void Kill(int timeLeft){
+
+            Dust.NewDust(
+                new Vector2(projectile.position.X, projectile.position.Y),
+                projectile.width,
+                projectile.height,
+                Dust.dustWater()
+            );
+
+
+        }
+
     }
 }
